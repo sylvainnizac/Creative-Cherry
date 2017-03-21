@@ -1,0 +1,5 @@
+header,.panneau_lat , .principale, .article, .photoID_mobile, .top_titre, .mob_ID
+{
+	display: inline;
+	zoom: 1;
+}

@@ -1,0 +1,34 @@
+        <html>
+            <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="" />
+	    <meta name="keywords" content="" />
+	
+        <link rel="stylesheet" href='/static/css/style.css' />
+        <link rel="stylesheet" href='/static/bootstrap/css/bootstrap.min.css' />
+        <link rel="stylesheet" href='/static/css/styleCV.css' />
+		<!--[if lt IE 9]>
+            <script src="http://github.com/aFarkas/html5shiv/blob/master/dist/html5shiv.js"></script>
+        <![endif]-->
+        <!--[if lte IE 7]>
+			<link rel="stylesheet" href='/static/css/style_ieCV.css' />
+        <![endif]-->
+
+        <title>{{ title or 'Creative Cherry' }}</title>
+        <!-- affiche une icone avant le nom dans l'onglet -->
+        <link rel="icon" href='/static/img/favicon.ico'>
+            </head>
+            <body>
+                {{ content }}
+            </body>
+        <!-- foot -->
+        <footer class="footer">&copy; Creative Cherry by Sylvain<br></footer>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src='/static/bootstrap/js/bootstrap.min.js'></script>
+        </html>
