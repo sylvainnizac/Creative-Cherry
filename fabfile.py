@@ -23,20 +23,38 @@ def deploy(server=PROD):
         restart_server(server)
         
 @task
+def rollback(server=PROD):
+    """
+    Rollback code for target server, restart server
+    """
+    print_title_task('Rollback on server %s' % server.upper())
+    question = red('Do you really want to rollback on server ') + red('%s' % server.upper(), True) + red('?')
+    if confirm(question, default=False):
+        restore_directories(server)
+        restart_server(server)
+        
+@task
 def save_directories(server=PROD):
     """
     save directories
     """
     print_title_task('save server directories %s' % server.upper())
     date= datetime.datetime.now().strftime("%d%m%Y")
-    new_date = date
     with settings(warn_only=True, host_string=SERV_MAPPING[server]):
-        i = 1
-        while exists('%s.%s'%(PROJECT_PATH_MAPPING[server],new_date)):
-            new_date = '%s.%s'%(date,i)
-            i+= 1         
-        run('cp -rf %s %s.%s'%(PROJECT_PATH_MAPPING[server], PROJECT_PATH_MAPPING[server], new_date))
+        run('rm -rf %s.%s'%(PROJECT_PATH_MAPPING[server], 'old'))
+        run('cp -rf %s %s.%s'%(PROJECT_PATH_MAPPING[server], PROJECT_PATH_MAPPING[server], 'old'))
 
+@task
+def restore_directories(server=PROD):
+    """
+    restore directories
+    """
+    print_title_task('restore server directories %s' % server.upper())
+    date= datetime.datetime.now().strftime("%d%m%Y")
+    with settings(warn_only=True, host_string=SERV_MAPPING[server]):
+        run('rm -rf %s'%PROJECT_PATH_MAPPING[server])
+        run('cp -rf %s.%s %s'%(PROJECT_PATH_MAPPING[server], 'old', PROJECT_PATH_MAPPING[server]))
+        
 @task
 def pull(server=PROD):
     """
