@@ -16,8 +16,7 @@ if __name__ == "__main__":
     })
 
     cp.tree.mount(Root(), '/', config.root_conf)
-    cp.tree.mount(StaticPages(), '/main', config.st_pages_conf)
-
+    cp.tree.mount(StaticPages(), '/display', config.st_pages_conf)
 
     cp.engine.start()
     cp.engine.block()

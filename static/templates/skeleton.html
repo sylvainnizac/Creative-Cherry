@@ -1,34 +1,72 @@
         <html>
             <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
-	    <meta name="description" content="" />
-	    <meta name="keywords" content="" />
-	
-        <link rel="stylesheet" href='/static/css/style.css' />
-        <link rel="stylesheet" href='/static/bootstrap/css/bootstrap.min.css' />
-        <link rel="stylesheet" href='/static/css/styleCV.css' />
-		<!--[if lt IE 9]>
-            <script src="http://github.com/aFarkas/html5shiv/blob/master/dist/html5shiv.js"></script>
-        <![endif]-->
-        <!--[if lte IE 7]>
-			<link rel="stylesheet" href='/static/css/style_ieCV.css' />
-        <![endif]-->
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta name="description" content="" />
+                <meta name="keywords" content="" />
 
-        <title>{{ title or 'Creative Cherry' }}</title>
-        <!-- affiche une icone avant le nom dans l'onglet -->
-        <link rel="icon" href='/static/img/favicon.ico'>
+                <link rel="stylesheet" href='/static/css/style.css' />
+                <link rel="stylesheet" href='/static/bootstrap/css/bootstrap.min.css' />
+                <link rel="stylesheet" href='/static/bootstrap/css/navbar-fixed-side.min.css' />
+                <link rel="stylesheet" href='/static/css/styleCV.css' />
+                <!--[if lt IE 9]>
+                    <script src="http://github.com/aFarkas/html5shiv/blob/master/dist/html5shiv.js"></script>
+                <![endif]-->
+                <!--[if lte IE 7]>
+                    <link rel="stylesheet" href='/static/css/style_ieCV.css' />
+                <![endif]-->
+
+                <title>{{ title or 'Creative Cherry' }}</title>
+                <!-- affiche une icone avant le nom dans l'onglet -->
+                <link rel="icon" href='/static/img/favicon.ico'>
             </head>
             <body>
-                {{ content }}
-            </body>
-        <!-- foot -->
-        <footer class="footer">&copy; Creative Cherry by Sylvain<br></footer>
+{% if no_navbar %}
+                                {{ content }}
+{% else %}
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-2 col-lg-1">
+                      <nav class="navbar navbar-inverse navbar-fixed-side">
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src='/static/bootstrap/js/bootstrap.min.js'></script>
+                       <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed"
+                                        data-toggle="collapse" data-target="#navbar"
+                                        aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="/">Creative Cherry</a>
+                            </div>
+                            <div id="navbar" class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="">Blog</a></li>
+                                    <li><a href="">Admin</a></li>
+                                    <li><a href="/display/CV">CV</a></li>
+                                    <li><a href="">Galerie</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                      </nav>
+                    </div>
+                    <div class="col-sm-10 col-lg-11">
+                                {{ content }}
+                    </div>
+                  </div>
+                </div>
+{% endif %}
+            </body>
+            <!-- foot -->
+            <footer class="footer">&copy; Creative Cherry by Sylvain<br></footer>
+
+            <!-- Bootstrap core JavaScript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script src='/static/bootstrap/js/bootstrap.min.js'></script>
         </html>

@@ -1,6 +1,4 @@
 import os, os.path
-import random
-import string
 
 import cherrypy as cp
 
@@ -36,7 +34,7 @@ class StaticPages(object):
     def CV(self):
         sk = env.get_template('/templates/skeleton.html')
         template = env.get_template('/pages/CV.html')
-        return sk.render(content = template.render(), title = "CV NIZAC Sylvain")
+        return sk.render(content=template.render(), title="CV NIZAC Sylvain")
 
 
 if __name__ == "__main__":
@@ -65,7 +63,6 @@ if __name__ == "__main__":
 #    cp.quickstart(TestClass(), '/', conf)
     cp.tree.mount(TestClass(), '/', conf)
     cp.tree.mount(StaticPages(), '/main', conf_main)
-
 
     cp.engine.start()
     cp.engine.block()

@@ -1,4 +1,11 @@
-import os, os.path
+import os
+import os.path
+from jinja2 import Environment, FileSystemLoader
+
+env = Environment(loader=FileSystemLoader('static'))
+skeleton = env.get_template('/templates/skeleton.html')
+under_construction = env.get_template('/pages/under_construction.html')
+
 
 root_conf = {
        '/': {
@@ -12,11 +19,11 @@ root_conf = {
 }
 
 st_pages_conf = {
-       '/main': {
+       '/': {
             'tools.sessions.on': True,
             'tools.staticdir.root': os.path.abspath(os.getcwd())
         },
-       '/main/static': {
+       '/static': {
             'tools.staticdir.on': True,
             'tools.staticdir.dir': './static'
         }
