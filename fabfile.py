@@ -5,7 +5,7 @@ from fabric.api import (abort, cd, env, local, prefix, prompt, run, settings,
                         task)
 from fabric.colors import cyan, green, red
 from fabric.contrib.console import confirm
-from fabric.contrib.files import exists
+from fabric.contrib.files import existslog
 import sys
 
 PROD = "prod"
@@ -44,7 +44,7 @@ def save_directories(server=PROD):
     save directories
     """
     print_title_task('save server directories %s' % server.upper())
-    with settings(warn_only=True, host_string=SERV_MAPPING[server]):
+    with settings(warn_only=True):
         run('rm -rf %s.%s' % (PROJECT_NAME, 'old'))
         run('cp -rf %s %s.%s' % (PROJECT_NAME, PROJECT_NAME, 'old'))
 
@@ -55,7 +55,7 @@ def restore_directories(server=PROD):
     restore directories
     """
     print_title_task('restore server directories %s' % server.upper())
-    with settings(warn_only=True, host_string=SERV_MAPPING[server]):
+    with settings(warn_only=True):
         run('rm -rf %s' % PROJECT_NAME)
         run('cp -rf %s.%s %s' % (PROJECT_NAME, 'old', PROJECT_NAME))
 
@@ -66,7 +66,7 @@ def pull(server=PROD):
     Pull last commit on target server
     """
     print_title_task('Pull source code on server %s' % server.upper())
-    with settings(warn_only=True, host_string=SERV_MAPPING[server]):
+    with settings(warn_only=True):
         with cd(PROJECT_NAME):
             run('git checkout master')
             run('git pull')
@@ -78,7 +78,7 @@ def install_dependencies(server=PROD):
     Install dependencies on target server
     """
     print_title_task('Install dependencies on server %s' % server.upper())
-    with settings(warn_only=True, host_string=SERV_MAPPING[server]):
+    with settings(warn_only=True):
         with cd(PROJECT_NAME):
             run('pip install -r requirements.txt')
 
@@ -89,7 +89,6 @@ def restart_server(server=PROD):
     Restart the target server
     """
     print_title_task('Restart server %s' % server.upper())
-    server_names = SERVER_MAPPING[server]
-    with settings(warn_only=True, host_string=SERV_MAPPING[server]):
+    with settings(warn_only=True):
         # Depending arch, will see that later
         run('supervisorctl restart %s' % server_names)

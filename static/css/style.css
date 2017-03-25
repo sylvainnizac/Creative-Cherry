@@ -12,6 +12,10 @@ body {
     background-color: #003865;
 }*/
 
+.main-container {
+  min-height: 100%;
+}
+
 /* error pages */
 .error-body {
     text-align: center;
@@ -26,4 +30,33 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
+}
+
+/* standard display */
+@media screen and (min-width: 1024px) {
+    #common-navbar {
+        /*animation-name animation-duration animation-timing-function animation-delay animation-direction*/
+        -moz-animation: hide_nav_bar 1s ease-in 1s forwards;
+        -webkit-animation: hide_nav_bar 1s ease-in 1s forwards;
+        -o-animation: hide_nav_bar 1s ease-in 1s forwards;
+        animation: hide_nav_bar 1s ease-in 1s forwards;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes hide_nav_bar {
+        to {
+            width:0;
+            height:0;
+            overflow:hidden;
+        }
+    }
+
+    @-webkit-keyframes hide_nav_bar {
+        to {
+            width:0;
+            height:0;
+            visibility:hidden;
+        }
+    }
 }
