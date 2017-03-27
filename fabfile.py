@@ -12,6 +12,13 @@ PROD = "prod"
 PROJECT_NAME = "Creative-Cherry"
 
 
+def print_title_task(title):
+    length = len(title)
+    print(cyan('-' * length))
+    print(cyan(title))
+    print(cyan('-' * length))
+
+
 @task
 def deploy(server=PROD):
     """
