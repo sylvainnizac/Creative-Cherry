@@ -1,3 +1,5 @@
 CherryPy
 Jinja2
 Fabric3
+nodejs
+npm
