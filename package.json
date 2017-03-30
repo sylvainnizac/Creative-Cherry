@@ -1,0 +1,7 @@
+{
+  "name": "Creative-Cherry",
+  "version": "0.1.0",
+  "devDependencies": {
+      "typescript": "^2.2.2"
+  }
+}
