@@ -3,7 +3,7 @@ import cherrypy as cp
 from config import skeleton, under_construction
 
 
-class Root(object):
+class Galery(object):
 
     @cp.expose
     def index(self):
