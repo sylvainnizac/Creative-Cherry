@@ -88,6 +88,7 @@ def install_dependencies(server=PROD):
     with settings(warn_only=True):
         with cd(PROJECT_NAME):
             run('pip install -r requirements.txt')
+            run('npm install')
 
 
 @task
