@@ -24,13 +24,19 @@ body {
     cursor:pointer;
 }
 
+.btn-inverse{
+    color: #fff;
+    background-color: #333;
+    border-color: #ccc;
+    }
+
 #nav_bar_appear_button button .icon-bar {
     border-radius: 1px;
     display: block;
     height: 2px;
     width: 22px;
     margin-top: 3px;
-    background-color: #FFF;
+    background-color: #ccc;
 }
 
 /* error pages */
