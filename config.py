@@ -6,7 +6,6 @@ env = Environment(loader=FileSystemLoader('static'))
 skeleton = env.get_template('/templates/skeleton.html')
 under_construction = env.get_template('/pages/under_construction.html')
 
-
 common_conf = {
        '/': {
             'tools.sessions.on': True,
@@ -17,3 +16,8 @@ common_conf = {
             'tools.staticdir.dir': './static'
         }
 }
+
+try:
+    from local_config import *
+except ImportError:
+    pass
