@@ -87,8 +87,7 @@ def install_dependencies(server=PROD):
     print_title_task('Install dependencies on server %s' % server.upper())
     with settings(warn_only=True):
         with cd(PROJECT_NAME):
-            run('pip install -r requirements.txt')
-            run('npm install')
+            run('pip3 install -r requirements.txt')
 
 
 @task
@@ -99,4 +98,5 @@ def restart_server(server=PROD):
     print_title_task('Restart server %s' % server.upper())
     with settings(warn_only=True):
         # Depending arch, will see that later
-        run('supervisorctl restart %s' % server_names)
+        run('sudo service nginx stop')
+        run('sudo service nginx start')
