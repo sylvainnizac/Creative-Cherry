@@ -5,6 +5,7 @@ from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('static'))
 skeleton = env.get_template('/templates/skeleton.html')
 under_construction = env.get_template('/pages/under_construction.html')
+main_page = env.get_template('/pages/main.html')
 
 common_conf = {
        '/': {
