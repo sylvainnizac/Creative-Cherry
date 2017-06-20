@@ -2,7 +2,7 @@ import cherrypy as cp
 import psutil
 from datetime import datetime
 
-from config import skeleton, under_construction, main
+from config import skeleton, under_construction, main_page
 
 
 class Root(object):
