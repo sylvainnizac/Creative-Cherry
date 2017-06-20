@@ -1,4 +1,4 @@
 CherryPy
 Jinja2
 Fabric3
-psutils
+psutil
