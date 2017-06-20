@@ -12,7 +12,7 @@ class Root(object):
         #template = under_construction  # scafold
         processes_names = ["nginx"]
         page_content = {"data": self.process_status(processes_names)}
-        template = main
+        template = main_page
         rendered_template = template.render(**page_content)
         kwargs = {
             "content": rendered_template,
