@@ -10,7 +10,8 @@ class Root(object):
     @cp.expose
     def index(self):
         #template = under_construction  # scafold
-        page_content = {"data": self.process_status()}
+        processes_names = ["nginx"]
+        page_content = {"data": self.process_status(processes_names)}
         template = main
         rendered_template = template.render(**page_content)
         kwargs = {
