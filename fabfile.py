@@ -30,7 +30,7 @@ def deploy(server=PROD):
         save_directories(server)
         pull(server)
         install_dependencies(server)
-        restart_server(server)
+        #restart_server(server)
 
 
 @task
