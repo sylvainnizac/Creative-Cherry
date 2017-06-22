@@ -21,14 +21,15 @@ class Root(object):
         return skeleton.render(**kwargs)
     
     def process_status(self, searched=["nginx"]):
-        data = {}
+        data = []
         for proc in psutil.process_iter():
             if proc.name() in searched:
-                data[proc.name()] = {
+                data.append({
+                        "name": proc.name(),
                         "status": proc.status(),
                         "create time": datetime.fromtimestamp(proc.create_time()).strftime("%Y-%m-%d %H:%M:%S"),
                         "cpu interval": proc.cpu_percent(interval=1)
-                    }
+                    })
         return data
 
     
