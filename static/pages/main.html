@@ -4,7 +4,21 @@
                 <h1>Look at this!</h1>
         </header>
         <article>
-            {{data}}
+            <table>
+                {% for process in data %}
+                    {% for k, v in process %}
+                        {% if k == "name" %}
+                        <th>
+                            <td colspan="2">{{v}}</td>
+                        </th>
+                        {% else %}
+                        <tr>
+                            <td>{{k}}</td>
+                            <td>{{v}}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
         </article>
     </section>
 </div>
