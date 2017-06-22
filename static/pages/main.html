@@ -6,15 +6,15 @@
         <article>
             <table>
                 {% for process in data %}
-                    {% for k, v in process %}
-                        {% if k == "name" %}
+                    {% for proc in process %}
+                        {% if proc == "name" %}
                         <th>
-                            <td colspan="2">{{v}}</td>
+                            <td colspan="2">{{process[proc]}}</td>
                         </th>
                         {% else %}
                         <tr>
-                            <td>{{k}}</td>
-                            <td>{{v}}</td>
+                            <td>{{proc}}</td>
+                            <td>{{process[proc]}}</td>
                         </tr>
                         {% endif %}
                     {% endfor %}
