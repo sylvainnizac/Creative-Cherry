@@ -6,12 +6,11 @@
         <article>
             <table>
                 {% for process in data %}
-                    {% for proc in process %}
-                        {% if proc == "name" %}
                         <th>
-                            <td colspan="2">{{process[proc]}}</td>
+                            <td colspan="2">{{process["name"]}}</td>
                         </th>
-                        {% else %}
+                    {% for proc in process %}
+                        {% if proc != "name" %}
                         <tr>
                             <td>{{proc}}</td>
                             <td>{{process[proc]}}</td>
