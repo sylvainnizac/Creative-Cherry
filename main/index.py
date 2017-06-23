@@ -23,7 +23,7 @@ class Root(object):
     def process_status(self, searched=["nginx"]):
         data = []
         for proc in psutil.process_iter():
-            if proc.name() in searched:
+            if proc.name() in searched and proc.username() == "root":
                 data.append({
                         "name": proc.name(),
                         "status": proc.status(),
