@@ -19,6 +19,7 @@ if __name__ == "__main__":
     cp.tree.mount(Root(), '/', config.common_conf)
     cp.tree.mount(StaticPages(), '/display', config.common_conf)
     cp.tree.mount(Galery(), '/galery', config.common_conf)
+    cp.tree.mount(Backyard(), '/backyard', config.common_conf)
 
     cp.engine.start()
     cp.engine.block()
